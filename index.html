@@ -77,8 +77,9 @@
     }
     .slide {
       position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
+      display: flex; align-items: flex-start; justify-content: center;
       padding: 112px 24px 100px;
+      overflow-y: auto; -webkit-overflow-scrolling: touch;
       opacity: 0; pointer-events: none;
       transform: translateX(60px);
       transition: opacity .45s ease, transform .45s ease;
@@ -92,6 +93,7 @@
 
     .slide__inner {
       width: 100%; max-width: 640px;
+      margin: auto 0;
     }
 
     /* ─── WELCOME / END SCREENS ─── */
@@ -368,16 +370,16 @@
 
       <div class="field-group">
         <label>Nombre de la entidad</label>
-        <input type="text" id="entidad" placeholder="Ej: Contraloria Municipal de Bucaramanga" />
+        <input type="text" id="entidad" placeholder="Ej: Contraloría de Bogotá D.C." />
       </div>
       <div class="field-row">
         <div class="field-group">
           <label>Ciudad</label>
-          <input type="text" id="ciudad" placeholder="Ej: Bucaramanga" />
+          <input type="text" id="ciudad" placeholder="Ej: Bogotá D.C." />
         </div>
         <div class="field-group">
           <label>Departamento</label>
-          <input type="text" id="departamento" placeholder="Ej: Santander" />
+          <input type="text" id="departamento" placeholder="Ej: Cundinamarca" />
         </div>
       </div>
       <div class="field-row">
