@@ -133,6 +133,36 @@
     <div class="item">
       <div class="checkbox"></div>
       <div class="item-body">
+        <div class="item-title">Persistencia de respuestas (CRITICO)</div>
+        <div class="item-desc">
+          Actualmente el boton <em>Enviar respuestas</em> solo avanza a la pantalla de agradecimiento: <strong>los datos no se envian ni se almacenan en ningun sitio</strong>. Sin esto la encuesta es decorativa.
+          Definir destino de los datos antes de publicar. Opciones ordenadas por fricción creciente:
+          <ul style="margin:8px 0 0 18px; padding:0;">
+            <li><strong>Google Sheets</strong> via Apps Script webhook &mdash; cero backend, la gerencia ve los datos en una hoja. Ideal para volumen bajo.</li>
+            <li><strong>Formspree / Getform</strong> &mdash; SaaS, correo + dashboard. Pago por volumen.</li>
+            <li><strong>Vercel serverless function</strong> &rarr; correo o base de datos &mdash; minimalista y ya estamos en Vercel.</li>
+            <li><strong>Supabase / Neon (Postgres)</strong> &mdash; si se quiere dashboard propio o cruzar datos. Mas trabajo.</li>
+          </ul>
+          Implica agregar manejo de errores de envio, estado de carga en el boton, y reintento si falla.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-body">
+        <div class="item-title">Analitica de uso (tasa de finalizacion y abandono)</div>
+        <div class="item-desc">
+          Sin analitica no sabremos cuantos abren la encuesta vs la terminan, ni en que paso abandonan. Recomendacion: <strong>Plausible</strong> o <strong>Umami</strong> (sin cookies, sin PII, una linea en la politica basta).
+          Evitar Google Analytics 4 para este caso: exige banner de consentimiento de cookies, declaracion explicita en la politica y agrega friccion legal desproporcionada para una encuesta corta.
+          Si se implementa, trackear al menos: visita inicial, inicio de diligenciamiento, y envio exitoso.
+        </div>
+      </div>
+    </div>
+
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-body">
         <div class="item-title">Definir branding de la encuesta</div>
         <div class="item-desc">
           Al remover el branding de la Auditoria General, la encuesta quedo visualmente generica y pierde credibilidad institucional.
